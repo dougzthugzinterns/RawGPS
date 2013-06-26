@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RawGPS", "RawGPS\RawGPS.csproj", "{6637F154-7F6B-42EB-A6ED-EBB338890A35}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+		Release|iPhone = Release|iPhone
+		Ad-Hoc|iPhone = Ad-Hoc|iPhone
+		AppStore|iPhone = AppStore|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.AppStore|iPhone.Build.0 = AppStore|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Debug|iPhone.Build.0 = Debug|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Release|iPhone.ActiveCfg = Release|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Release|iPhone.Build.0 = Release|iPhone
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{6637F154-7F6B-42EB-A6ED-EBB338890A35}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = RawGPS\RawGPS.csproj
+	EndGlobalSection
+EndGlobal

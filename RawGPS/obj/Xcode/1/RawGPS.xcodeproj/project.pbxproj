@@ -1,0 +1,218 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		398ADFB40000000000000000 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ED7B9DA0000000000000000 /* UIKit.framework */; };
+		3D1BEC520000000000000000 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3268C6780000000000000000 /* MapKit.framework */; };
+		ACF8F0000000000000000000 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35F9D3160000000000000000 /* Foundation.framework */; };
+		124E9FAF0000000000000000 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15DFAC4D0000000000000000 /* CoreGraphics.framework */; };
+		C37447800000000000000000 /* RawGPSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8511600000000000000000 /* RawGPSViewController.xib */; };
+		F956DFA00000000000000000 /* AppDelegate.h in Sources */ = {isa = PBXBuildFile; fileRef = 13267A980000000000000000 /* AppDelegate.h */; };
+		2D9A048F0000000000000000 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 312B112D0000000000000000 /* AppDelegate.m */; };
+		381A474D0000000000000000 /* RawGPSViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB53EB0000000000000000 /* RawGPSViewController.h */; };
+		3B7870CF0000000000000000 /* RawGPSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F097D6D0000000000000000 /* RawGPSViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2B46AD3C0000000000000000 /* RawGPS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "RawGPS.app"; path = "RawGPS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2ED7B9DA0000000000000000 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "UIKit.framework"; path = "System/Library/Frameworks/UIKit.framework"; sourceTree = SDKROOT; };
+		3268C6780000000000000000 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "MapKit.framework"; path = "System/Library/Frameworks/MapKit.framework"; sourceTree = SDKROOT; };
+		35F9D3160000000000000000 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Foundation.framework"; path = "System/Library/Frameworks/Foundation.framework"; sourceTree = SDKROOT; };
+		15DFAC4D0000000000000000 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreGraphics.framework"; path = "System/Library/Frameworks/CoreGraphics.framework"; sourceTree = SDKROOT; };
+		FC8511600000000000000000 /* RawGPSViewController.xib */ = {isa = PBXFileReference; name = "RawGPSViewController.xib"; path = "RawGPSViewController.xib"; sourceTree = "<group>"; };
+		13267A980000000000000000 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "AppDelegate.h"; path = "AppDelegate.h"; sourceTree = "<group>"; };
+		312B112D0000000000000000 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "AppDelegate.m"; path = "AppDelegate.m"; sourceTree = "<group>"; };
+		3BAB53EB0000000000000000 /* RawGPSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RawGPSViewController.h"; path = "RawGPSViewController.h"; sourceTree = "<group>"; };
+		3F097D6D0000000000000000 /* RawGPSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RawGPSViewController.m"; path = "RawGPSViewController.m"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		263AF7270000000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				398ADFB40000000000000000 /* UIKit.framework in Frameworks */,
+				3D1BEC520000000000000000 /* MapKit.framework in Frameworks */,
+				ACF8F0000000000000000000 /* Foundation.framework in Frameworks */,
+				124E9FAF0000000000000000 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		29E2DEBA0000000000000000 = {
+			isa = PBXGroup;
+			children = (
+				F3C71A700000000000000000 /* RawGPS */,
+				11078E8F0000000000000000 /* Frameworks */,
+				349604940000000000000000 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		349604940000000000000000 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2B46AD3C0000000000000000 /* RawGPS.app */,
+			);
+			name = "Products";
+			sourceTree = "<group>";
+		};
+		11078E8F0000000000000000 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2ED7B9DA0000000000000000 /* UIKit.framework */,
+				3268C6780000000000000000 /* MapKit.framework */,
+				35F9D3160000000000000000 /* Foundation.framework */,
+				15DFAC4D0000000000000000 /* CoreGraphics.framework */,
+			);
+			name = "Frameworks";
+			sourceTree = "<group>";
+		};
+		F3C71A700000000000000000 /* RawGPS */ = {
+			isa = PBXGroup;
+			children = (
+				13267A980000000000000000 /* AppDelegate.h */,
+				3BAB53EB0000000000000000 /* RawGPSViewController.h */,
+				FC8511600000000000000000 /* RawGPSViewController.xib */,
+				2F7BFC6C0000000000000000 /* Supporting Files */,
+			);
+			name = "RawGPS";
+			sourceTree = "<group>";
+		};
+		2F7BFC6C0000000000000000 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				312B112D0000000000000000 /* AppDelegate.m */,
+				3F097D6D0000000000000000 /* RawGPSViewController.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1F2FB8E00000000000000000 /* RawGPS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39D625F30000000000000000 /* Build configuration list for PBXNativeTarget "RawGPS" */;
+			buildPhases = (
+				B601ECA00000000000000000 /* Sources */,
+				263AF7270000000000000000 /* Frameworks */,
+				7CF122C00000000000000000 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "RawGPS";
+			productName = "RawGPS";
+			productReference = 2B46AD3C0000000000000000 /* RawGPS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1EA21AAF0000000000000000 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 147C93060000000000000000 /* Build configuration list for PBXProject "RawGPS" */;
+			compatibilityVersion = "Xcode 3.2";
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 29E2DEBA0000000000000000;
+			productRefGroup = 349604940000000000000000 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1F2FB8E00000000000000000 /* RawGPS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7CF122C00000000000000000 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C37447800000000000000000 /* RawGPSViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B601ECA00000000000000000 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F956DFA00000000000000000 /* AppDelegate.h in Sources */,
+				2D9A048F0000000000000000 /* AppDelegate.m in Sources */,
+				381A474D0000000000000000 /* RawGPSViewController.h in Sources */,
+				3B7870CF0000000000000000 /* RawGPSViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		43E058E00000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				SDKROOT = iphoneos;
+			};
+			name = MonoTouch;
+		};
+		22B639020000000000000000 /* MonoTouch */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				PRODUCT_NAME = "RawGPS";
+				WRAPPER_EXTENSION = app;
+			};
+			name = MonoTouch;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		147C93060000000000000000 /* Build configuration list for PBXProject "RawGPS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				43E058E00000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+		39D625F30000000000000000 /* Build configuration list for PBXNativeTarget "RawGPS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				22B639020000000000000000 /* MonoTouch */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = MonoTouch;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1EA21AAF0000000000000000 /* Project object */;
+}
