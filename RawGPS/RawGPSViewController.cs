@@ -38,9 +38,9 @@ namespace RawGPS
 			myLocManager = new CLLocationManager ();
 			myLocManager.DesiredAccuracy = 10;
 			myLocManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
-				LatLabel.Text = e.Locations [e.Locations.Length - 1].Coordinate.Latitude.ToString() + "degrees";
-				LongLabel.Text = e.Locations [e.Locations.Length - 1].Coordinate.Longitude.ToString() + "degrees";
-				SpeedLabel.Text = e.Locations [e.Locations.Length - 1].Speed.ToString() + "meters/sec";
+				LatLabel.Text = "Latitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Latitude.ToString() + "degrees";
+				LongLabel.Text = "Longitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Longitude.ToString() + "degrees";
+				SpeedLabel.Text = "Speed: " + this.getKilometersPerHour(e.Locations [e.Locations.Length - 1].Speed).ToString() + "Km/hour";
 			};
 			if(CLLocationManager.LocationServicesEnabled){
 				myLocManager.StartUpdatingLocation ();
@@ -68,8 +68,8 @@ namespace RawGPS
 			double longitude = myLocMan.Location.Coordinate.Longitude;
 			return longitude;
 		}
-		//Gets the Speed of the user.
-		public double getCurrentSpeed(){
+		//Gets the Speed of the user in meters/sec.
+		public double getMetersPerSecond(){
 			CLLocationManager myLocMan = new CLLocationManager ();
 			myLocMan.DesiredAccuracy = 10; //accuracy within ten meters.
 			if(CLLocationManager.LocationServicesEnabled){
@@ -78,6 +78,11 @@ namespace RawGPS
 			double speed = myLocMan.Location.Speed;
 			myLocMan.StopUpdatingLocation ();
 			return speed;
+		}
+		//Gets the Speed of the user in Km/hour.
+		public double getKilometersPerHour(double metersPerSecond){
+			double kmHour = ((metersPerSecond / 1000) * 3600);
+			return kmHour;
 		}
 		public override bool ShouldAutorotateToInterfaceOrientation (UIInterfaceOrientation toInterfaceOrientation)
 		{
