@@ -12,13 +12,19 @@ namespace RawGPS
 	partial class RawGPSViewController
 	{
 		[Outlet]
+		MonoTouch.UIKit.UILabel DistLabel { get; set; }
+
+		[Outlet]
 		MonoTouch.UIKit.UILabel LatLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel LongLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel SpeedLabel { get; set; }
+		MonoTouch.UIKit.UILabel MagHeadLabel { get; set; }
+
+		[Outlet]
+		MonoTouch.UIKit.UILabel pointsLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel RecLatLabel { get; set; }
@@ -27,10 +33,7 @@ namespace RawGPS
 		MonoTouch.UIKit.UILabel RecLongLabel { get; set; }
 
 		[Outlet]
-		MonoTouch.UIKit.UILabel DistLabel { get; set; }
-
-		[Outlet]
-		MonoTouch.UIKit.UILabel MagHeadLabel { get; set; }
+		MonoTouch.UIKit.UILabel SpeedLabel { get; set; }
 
 		[Outlet]
 		MonoTouch.UIKit.UILabel TrueHeadLabel { get; set; }
@@ -78,6 +81,11 @@ namespace RawGPS
 			if (TrueHeadLabel != null) {
 				TrueHeadLabel.Dispose ();
 				TrueHeadLabel = null;
+			}
+
+			if (pointsLabel != null) {
+				pointsLabel.Dispose ();
+				pointsLabel = null;
 			}
 		}
 	}

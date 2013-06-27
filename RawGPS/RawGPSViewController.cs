@@ -51,6 +51,7 @@ namespace RawGPS
 			myLocManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
 				MagHeadLabel.Text = e.NewHeading.MagneticHeading.ToString () + "º";
 				TrueHeadLabel.Text = e.NewHeading.TrueHeading.ToString () + "º";
+				pointsLabel.Text = distancePoints.Capacity.ToString();
 			};
 			if (CLLocationManager.LocationServicesEnabled) {
 				myLocManager.StartUpdatingLocation ();
