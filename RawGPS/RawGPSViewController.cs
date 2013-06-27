@@ -25,6 +25,7 @@ namespace RawGPS
 			//gets current longitude of the user and changes the "Recorded Longitude Label" to include the current longitude.
 			double lon = this.getCurrentLongitude ();
 			RecLongLabel.Text = lon.ToString ();
+
 			double dis = this.CalculateDistanceTraveled(distancePoints);
 			DistLabel.Text = " Distance Traveled: " + dis.ToString();
 		}
@@ -47,8 +48,15 @@ namespace RawGPS
 				LongLabel.Text = "Longitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Longitude.ToString () + "degrees";
 				SpeedLabel.Text = "Speed: " + this.getKilometersPerHour (e.Locations [e.Locations.Length - 1].Speed).ToString () + "Km/hour";
 			};
+			myLocManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
+				MagHeadLabel.Text = e.NewHeading.MagneticHeading.ToString () + "º";
+				TrueHeadLabel.Text = e.NewHeading.TrueHeading.ToString () + "º";
+			};
 			if (CLLocationManager.LocationServicesEnabled) {
 				myLocManager.StartUpdatingLocation ();
+			}
+			if(CLLocationManager.HeadingAvailable){
+				myLocManager.StartUpdatingHeading ();
 			}
 			this.createDistancePoints ();
 		}
@@ -111,7 +119,7 @@ namespace RawGPS
 				temp = new CLLocation(latitude,longitude);
 				distancePoints.Add(temp);
 			};
-			myLocMan.StopUpdatingHeading ();
+			//myLocMan.StopUpdatingHeading ();
 			return distancePoints;
 		}
 		//Calculates the distance traveled.
