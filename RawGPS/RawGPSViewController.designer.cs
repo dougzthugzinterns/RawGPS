@@ -26,6 +26,9 @@ namespace RawGPS
 		[Outlet]
 		MonoTouch.UIKit.UILabel RecLongLabel { get; set; }
 
+		[Outlet]
+		MonoTouch.UIKit.UILabel DistLabel { get; set; }
+
 		[Action ("recLoc:")]
 		partial void recLoc (MonoTouch.Foundation.NSObject sender);
 		
@@ -54,6 +57,11 @@ namespace RawGPS
 			if (RecLongLabel != null) {
 				RecLongLabel.Dispose ();
 				RecLongLabel = null;
+			}
+
+			if (DistLabel != null) {
+				DistLabel.Dispose ();
+				DistLabel = null;
 			}
 		}
 	}
