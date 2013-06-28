@@ -39,7 +39,7 @@ namespace RawGPS
 		MonoTouch.UIKit.UILabel TrueHeadLabel { get; set; }
 
 		[Action ("recLoc:")]
-		partial void recLoc (MonoTouch.Foundation.NSObject sender);
+		partial void recordDistanceAction (MonoTouch.Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
