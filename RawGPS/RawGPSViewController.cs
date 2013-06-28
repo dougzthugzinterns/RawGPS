@@ -5,13 +5,12 @@ using MonoTouch.UIKit;
 using MonoTouch.CoreLocation;
 using System.Collections.Generic;
 
-
 namespace RawGPS
 {
 	public partial class RawGPSViewController : UIViewController
 	{
 		CLLocationManager myLocManager = null;
-		List<CLLocation> distancePoints = new List<CLLocation>();
+		List<CLLocation> distancePoints = new List<CLLocation> ();
 
 		public RawGPSViewController () : base ("RawGPSViewController", null)
 		{
@@ -26,8 +25,8 @@ namespace RawGPS
 			double lon = this.getCurrentLongitude ();
 			RecLongLabel.Text = lon.ToString ();
 
-			double dis = this.CalculateDistanceTraveled(distancePoints);
-			DistLabel.Text = " Distance Traveled: " + dis.ToString();
+			double dis = convertMetersToKilometers(this.CalculateDistanceTraveled (distancePoints));
+			DistLabel.Text = " Distance Traveled: " + dis.ToString ("0.00000");
 		}
 
 		public override void DidReceiveMemoryWarning ()
@@ -46,20 +45,22 @@ namespace RawGPS
 			myLocManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
 				LatLabel.Text = "Latitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Latitude.ToString () + "degrees";
 				LongLabel.Text = "Longitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Longitude.ToString () + "degrees";
-				SpeedLabel.Text = "Speed: " + this.getKilometersPerHour (e.Locations [e.Locations.Length - 1].Speed).ToString () + "Km/hour";
+				SpeedLabel.Text = "Speed: " + this.convertToKilometersPerHour (e.Locations [e.Locations.Length - 1].Speed).ToString () + "Km/hour";
 			};
 			myLocManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
 				MagHeadLabel.Text = e.NewHeading.MagneticHeading.ToString () + "º";
 				TrueHeadLabel.Text = e.NewHeading.TrueHeading.ToString () + "º";
-				pointsLabel.Text = distancePoints.Capacity.ToString();
+				CLLocation test = new CLLocation (this.getCurrentLatitude (), this.getCurrentLongitude ());
+				distancePoints.Add (test);
+				pointsLabel.Text = distancePoints.Count.ToString ();
 			};
 			if (CLLocationManager.LocationServicesEnabled) {
 				myLocManager.StartUpdatingLocation ();
 			}
-			if(CLLocationManager.HeadingAvailable){
+			if (CLLocationManager.HeadingAvailable) {
 				myLocManager.StartUpdatingHeading ();
 			}
-			this.createDistancePoints ();
+			//this.createDistancePoints ();
 		}
 		//Gets the Latitude of the user.
 		public double getCurrentLatitude ()
@@ -98,37 +99,42 @@ namespace RawGPS
 			return speed;
 		}
 		//Gets the Speed of the user in Km/hour.
-		public double getKilometersPerHour (double metersPerSecond)
+		public double convertToKilometersPerHour (double metersPerSecond)
 		{
-			double kmHour = ((metersPerSecond / 1000) * 3600);
+			double kmHour = ((metersPerSecond / 1000.0) * 3600);
 			return kmHour;
 		}
-
-		public List<CLLocation> createDistancePoints ()
+		public double convertMetersToKilometers (double meters){
+			return meters / 1000.0;
+		}
+		public void createDistancePoints ()
 		{
 			CLLocationManager myLocMan = new CLLocationManager ();
 			myLocMan.DesiredAccuracy = 10;
 			CLLocation temp;
 			double latitude;
 			double longitude;
-			if(CLLocationManager.LocationServicesEnabled){
+			if (CLLocationManager.LocationServicesEnabled) {
 				myLocMan.StartUpdatingHeading ();
 			}
 			myLocMan.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
-				latitude = this.getCurrentLatitude();
-				longitude = this.getCurrentLongitude();
-				temp = new CLLocation(latitude,longitude);
-				distancePoints.Add(temp);
+				latitude = this.getCurrentLatitude ();
+				longitude = this.getCurrentLongitude ();
+				temp = new CLLocation (latitude, longitude);
+				distancePoints.Add (temp);
 			};
 			//myLocMan.StopUpdatingHeading ();
-			return distancePoints;
 		}
 		//Calculates the distance traveled.
 		public double CalculateDistanceTraveled (List<CLLocation> locations)
 		{
 			double distance = 0;
-			for (int i = 0; i<locations.Capacity; i++) {
-				distance += locations [i].DistanceFrom (locations[i+1]);
+			double temp = 0;
+			for (int i = 0; i<locations.Count; i++) {
+				if (i+1 < locations.Count) {
+					temp = locations [i].DistanceFrom (locations [i + 1]);
+					distance = distance + temp;
+				}
 			}
 			return distance;
 		}

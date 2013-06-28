@@ -1,1 +1,1 @@
---debug --aot=mtriple=armv7-darwin,full,static,asmonly,direct-icalls,no-direct-calls,iphone-abi,outfile=/System.Core.dll.armv7.s "/Users/victoriamcie/Downloads/RawGPS-master 3/RawGPS/bin/iPhone/Debug/RawGPS.app/System.Core.dll"
+--debug --aot=mtriple=armv7-darwin,full,static,asmonly,direct-icalls,no-direct-calls,iphone-abi,outfile=/System.Core.dll.armv7.s "/Users/victoriamcie/Desktop/DOUGZTHUGZ PROJECTS/RawGPS/RawGPS/bin/iPhone/Debug/RawGPS.app/System.Core.dll"
