@@ -9,7 +9,7 @@ namespace RawGPS
 {
 	public partial class RawGPSViewController : UIViewController
 	{
-		CLLocationManager myLocManager = null;
+		//CLLocationManager myLocManager = null;
 		List<CLLocation> distancePoints = new List<CLLocation> ();
 
 		public RawGPSViewController () : base ("RawGPSViewController", null)
@@ -40,13 +40,16 @@ namespace RawGPS
 		public override void ViewDidLoad ()
 		{
 			base.ViewDidLoad ();
+			/**
 			myLocManager = new CLLocationManager ();
 			myLocManager.DesiredAccuracy = 10;
+			myLocManager.HeadingFilter = 20;
 			myLocManager.LocationsUpdated += (object sender, CLLocationsUpdatedEventArgs e) => {
 				LatLabel.Text = "Latitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Latitude.ToString () + "degrees";
 				LongLabel.Text = "Longitude: " + e.Locations [e.Locations.Length - 1].Coordinate.Longitude.ToString () + "degrees";
 				SpeedLabel.Text = "Speed: " + this.convertToKilometersPerHour (e.Locations [e.Locations.Length - 1].Speed).ToString () + "Km/hour";
 			};
+
 			myLocManager.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
 				MagHeadLabel.Text = e.NewHeading.MagneticHeading.ToString () + "º";
 				TrueHeadLabel.Text = e.NewHeading.TrueHeading.ToString () + "º";
@@ -54,13 +57,16 @@ namespace RawGPS
 				distancePoints.Add (test);
 				pointsLabel.Text = distancePoints.Count.ToString ();
 			};
+			
 			if (CLLocationManager.LocationServicesEnabled) {
 				myLocManager.StartUpdatingLocation ();
 			}
 			if (CLLocationManager.HeadingAvailable) {
 				myLocManager.StartUpdatingHeading ();
 			}
-			//this.createDistancePoints ();
+			**/
+
+			this.createDistancePoints ();
 		}
 		//Gets the Latitude of the user.
 		public double getCurrentLatitude ()
@@ -111,18 +117,25 @@ namespace RawGPS
 		{
 			CLLocationManager myLocMan = new CLLocationManager ();
 			myLocMan.DesiredAccuracy = 10;
+			myLocMan.HeadingFilter = 30;
 			CLLocation temp;
-			double latitude;
-			double longitude;
+
 			if (CLLocationManager.LocationServicesEnabled) {
+				myLocMan.StartUpdatingLocation ();
+			}
+			if (CLLocationManager.HeadingAvailable) {
 				myLocMan.StartUpdatingHeading ();
 			}
+
 			myLocMan.UpdatedHeading += (object sender, CLHeadingUpdatedEventArgs e) => {
-				latitude = this.getCurrentLatitude ();
-				longitude = this.getCurrentLongitude ();
-				temp = new CLLocation (latitude, longitude);
+				MagHeadLabel.Text = e.NewHeading.MagneticHeading.ToString () + "º";
+				TrueHeadLabel.Text = e.NewHeading.TrueHeading.ToString () + "º";
+				temp = new CLLocation (this.getCurrentLatitude (), this.getCurrentLongitude ());
 				distancePoints.Add (temp);
+				pointsLabel.Text = distancePoints.Count.ToString ();
 			};
+
+
 			//myLocMan.StopUpdatingHeading ();
 		}
 		//Calculates the distance traveled.
